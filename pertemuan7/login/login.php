@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-if(isset($_POST["submit"])){
-    if($_POST["username"] == "gagah" && $_POST["password"] == "333") {
+if (isset($_POST["submit"])) {
+    if ($_POST["username"] == "gagah" && $_POST["password"] == "333") {
         header("Location: admin.php");
         exit;
     } else {
@@ -25,7 +25,7 @@ if(isset($_POST["submit"])){
 <body>
     <h1>Login Admin</h1>
 
-    <?php if(isset($error)) :?>
+    <?php if (isset($error)) : ?>
         <p style="color: red; font-style: italic;">username / password salah!</p>
     <?php endif; ?>
 
