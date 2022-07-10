@@ -16,7 +16,7 @@ if (isset($_POST["submit"])) {
     } else {
         echo "
             <script>
-                alert('data berhasil ditambahkan!');
+                alert('data gagal ditambahkan!');
                 document.location.href = 'index.php';
             </script>
         ";
@@ -42,8 +42,7 @@ if (isset($_POST["submit"])) {
         <ul>
             <li>
                 <label for="nama">Nama : </label>
-                <input type="text" name="nama" id="nama" 
-                required>
+                <input type="text" name="nama" id="nama" required>
             </li>
             <li>
                 <label for="nrp">NRP : </label>

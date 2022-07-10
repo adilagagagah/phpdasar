@@ -17,14 +17,21 @@ function query($query)
 
 function tambah($data) {
     global $db;
-    $nama = $data["nama"];
-    $nrp = $data["nrp"];
-    $email = $data["email"];
-    $jurusan = $data["jurusan"];
-    $gambar = $data["gambar"];
+    $nama = htmlspecialchars($data["nama"]);
+    $nrp = htmlspecialchars($data["nrp"]);
+    $email = htmlspecialchars($data["email"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $gambar = htmlspecialchars($data["gambar"]);
 
     $query = "INSERT INTO mahasiswa VALUES('', '$nama', '$nrp', '$email', '$jurusan', '$gambar')";
     mysqli_query($db, $query);
 
+    return mysqli_affected_rows($db);
+}
+
+function hapus($id) {
+    global $db;
+    mysqli_query($db, "DELETE FROM mahasiswa WHERE id = $id");
+    
     return mysqli_affected_rows($db);
 }
