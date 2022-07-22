@@ -4,6 +4,9 @@ require 'functions.php';
 
 //cek apakah submit udah di tekan
 if (isset($_POST["submit"])) {
+
+    var_dump($_POST);
+    var_dump($_FILES); die;
     
 
     if (tambah($_POST) > 0) {
@@ -38,7 +41,7 @@ if (isset($_POST["submit"])) {
 <body>
     <h1>Tambah data mahasiswa</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="nama">Nama : </label>
@@ -58,7 +61,7 @@ if (isset($_POST["submit"])) {
             </li>
             <li>
                 <label for="gambar">Gambar : </label>
-                <input type="text" name="gambar" id="gambar">
+                <input type="file" name="gambar" id="gambar">
             </li>
             <li>
                 <button type="submit" name="submit">Tambah Data!</button>
