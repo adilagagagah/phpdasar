@@ -4,8 +4,7 @@
 $db = mysqli_connect("localhost", "root", "", "phpdasar");
 
 
-function query($query)
-{
+function query($query) {
     global $db;
     $result = mysqli_query($db, $query);
     $rows = [];
@@ -15,8 +14,7 @@ function query($query)
     return $rows;
 }
 
-function tambah($data)
-{
+function tambah($data) {
     global $db;
     $nama = htmlspecialchars($data["nama"]);
     $nrp = htmlspecialchars($data["nrp"]);
@@ -39,7 +37,6 @@ function tambah($data)
 }
 
 function upload() {
-
     $namaFile = $_FILES['gambar']['name'];
     $ukuranFile = $_FILES['gambar']['size'];
     $error = $_FILES['gambar']['error'];
@@ -78,18 +75,14 @@ function upload() {
     return $namaFileBaru;
 }
 
-
-
-function hapus($id)
-{
+function hapus($id) {
     global $db;
     mysqli_query($db, "DELETE FROM mahasiswa WHERE id = $id");
 
     return mysqli_affected_rows($db);
 }
 
-function ubah($data)
-{
+function ubah($data) {
     global $db;
 
     $id = $data["id"];
@@ -97,7 +90,15 @@ function ubah($data)
     $nrp = htmlspecialchars($data["nrp"]);
     $email = htmlspecialchars($data["email"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+
+    //cek apakah user pilih gambar baru atau tidak
+    if($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = upload();
+    }
+    
 
     $query = "UPDATE mahasiswa SET
                 nama = '$nama',
