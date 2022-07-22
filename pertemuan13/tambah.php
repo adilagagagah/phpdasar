@@ -4,9 +4,6 @@ require 'functions.php';
 
 //cek apakah submit udah di tekan
 if (isset($_POST["submit"])) {
-
-    var_dump($_POST);
-    var_dump($_FILES); die;
     
 
     if (tambah($_POST) > 0) {
