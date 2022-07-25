@@ -51,7 +51,7 @@ if(isset($_POST['login'])) {
             if(isset($_POST['remember'])) {
                 // jika centang remember me, maka buat cookie
                 setcookie("id", $user['id'], time() + 60);
-                setcookie("key", hash('sha256', $_row['username']), time() + 60);
+                setcookie("key", hash('sha256', $user['username']), time() + 60);
             }
             
             header("Location: index.php");
