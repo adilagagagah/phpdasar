@@ -14,8 +14,8 @@ session_destroy();
 
 
 // hapus cookie
-$_COOKIE('id', '', time() - 3600);
-$_COOKIE('key', '', time() - 3600);
+setcookie('id', '', time() - 3600);
+setcookie('key', '', time() - 3600);
 
 
 // setelah session dan cookie terhapus, kembali ke halaman login
