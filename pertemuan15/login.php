@@ -2,6 +2,7 @@
 
 require 'functions.php';
 
+// cek apakah tombol submit sudah di tekan
 if(isset($_POST['login'])) {
 
     $username = $_POST['username'];
