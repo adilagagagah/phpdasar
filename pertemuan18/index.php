@@ -63,7 +63,7 @@ if( isset($_POST["cari"])) {
         <a href="?halaman=<?php echo ($halamanAktif - 1) ?>">&laquo</a>
     <?php endif; ?>
 
-    <?php for($i = 1; $i <= $jumlahDataPerHalaman; $i++): ?>
+    <?php for($i = 1; $i <= $jumlahHalaman; $i++): ?>
         <?php if($i == $halamanAktif): ?>
             <a href="?halaman=<?php echo $i?>" style="font-weight: bold; color: red;"><?php echo $i ?></a>
         <?php else: ?>
